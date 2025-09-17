@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vibrant-task-manager
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: vibrant-task-manager
+  template:
+    metadata:
+      labels:
+        app: vibrant-task-manager
+    spec:
+      containers:
+        - name: react-app
+          image: ayushman2711/vibrant-task-manager-ui-docker-jenkins-k8s
+          ports:
+            - containerPort: 80
